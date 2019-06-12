@@ -31,12 +31,11 @@ ENV WILDFLY_VERSION 9.0.1.Final
 ENV JBOSS_HOME /opt/jboss/wildfly
 ENV WILDFLY_SHA1 abe037d5d1cb97b4d07fbfe59b6a1345a39a9ae5
 
-
-RUN echo $HOME
-RUN curl -s -O http://download.jboss.org/wildfly/9.0.1.Final/wildfly-9.0.1.Final.tar.gz 
-RUN tar xf wildfly-9.0.1.Final.tar.gz 
-RUN mv $HOME/wildfly-9.0.1.Final $JBOSS_HOME 
-RUN rm wildfly-9.0.1.Final.tar.gz
+RUN cd $HOME \
+&& curl -s -O https://download.jboss.org/wildfly/9.0.1.Final/wildfly-9.0.1.Final.tar.gz \
+&& tar xf wildfly-9.0.1.Final.tar.gz \
+&& mv $HOME/wildfly-9.0.1.Final $JBOSS_HOME \
+&& rm wildfly-9.0.1.Final.tar.gz
 
 RUN /opt/jboss/wildfly/bin/add-user.sh admin jboss#1! --silent
 
