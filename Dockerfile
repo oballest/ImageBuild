@@ -16,7 +16,7 @@ tar \
 traceroute \
 unzip \
 xmlstarlet && \
-yum clean all
+yum clean all 
  
 
 WORKDIR /opt/jboss
@@ -30,7 +30,8 @@ ENV JBOSS_HOME /opt/jboss/wildfly
 ENV WILDFLY_SHA1 abe037d5d1cb97b4d07fbfe59b6a1345a39a9ae5
 
 RUN cd /opt/jboss 
-RUN chgrp -R 0 /opt/jboss && \
+RUN chmod 755 /opt/jboss && \
+    chgrp -R 0 /opt/jboss && \
     chmod -R g=u $JBOSS_HOME
 RUN curl -s -O https://download.jboss.org/wildfly/9.0.1.Final/wildfly-9.0.1.Final.tar.gz 
 RUN tar xf wildfly-9.0.1.Final.tar.gz 
