@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:7.2.1511
 MAINTAINER Oscar Ballesteros <oballest@redhat.com>
 
 RUN yum update -y && \
