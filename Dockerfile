@@ -21,8 +21,6 @@ yum clean all
 
 WORKDIR /opt/jboss
 
-USER 1001
-
 ### Add the environment variables below this line ###
 ENV JAVA_HOME /usr/lib/jvm/java
 ENV WILDFLY_VERSION 9.0.1.Final
@@ -43,5 +41,7 @@ RUN chmod -R g=u $JBOSS_HOME
 RUN /opt/jboss/wildfly/bin/add-user.sh admin jboss#1! --silent
 
 EXPOSE 8080 9990
+
+USER 1001
 
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement","0.0.0.0"]
