@@ -1,4 +1,4 @@
-FROM centos:7.2.1511
+FROM centos:latest
 MAINTAINER Oscar Ballesteros <oballest@redhat.com>
 
 RUN yum update -y && \
@@ -32,10 +32,10 @@ ENV JBOSS_HOME /opt/jboss/wildfly
 ENV WILDFLY_SHA1 abe037d5d1cb97b4d07fbfe59b6a1345a39a9ae5
 
 RUN cd $HOME \
-&& curl -s -O http://download.jboss.org/wildfly/9.0.1.Final/wildfly-$WILDFLY_VERSION.tar.gz \
-&& tar xf wildfly-$WILDFLY_VERSION.tar.gz \
-&& mv $HOME/wildfly-$WILDFLY_VERSION $JBOSS_HOME \
-&& rm wildfly-$WILDFLY_VERSION.tar.gz
+&& curl -s -O http://download.jboss.org/wildfly/9.0.1.Final/wildfly-9.0.1.Final.tar.gz \
+&& tar xf wildfly-9.0.1.Final.tar.gz \
+&& mv $HOME/wildfly-9.0.1.Final $JBOSS_HOME \
+&& rm wildfly-9.0.1.Final.tar.gz
 
 RUN /opt/jboss/wildfly/bin/add-user.sh admin jboss#1! --silent
 
